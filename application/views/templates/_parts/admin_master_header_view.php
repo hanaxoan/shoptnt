@@ -1,4 +1,4 @@
-<?php define('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,6 +10,7 @@
         <?php echo $before_head; ?>
     </head>
     <body>
+    <?php if($this->ion_auth->logged_in()) {?>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header>
@@ -27,7 +28,11 @@
                 <li><a href="#">A link</a></li>
                 <li><a href="#">Another link</a></li>
               </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo site_url('admin/user/logout');?>">Logout</a></li>
+              </ul>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
+    <?php }?>
 </html>
